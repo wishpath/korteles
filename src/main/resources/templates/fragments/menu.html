@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Menu</title>
+<style>	
+ 	.mygt{
+ 		display: flex;
+		align-items: center;
+		align-content: center;
+		width: 100%;
+		height: 26px;
+		border-radius: 13px;
+		border: none;
+		padding: 0px;	 
+ 	}
+ 	.pav{
+		margin-left: 10px;
+		height: 20px;
+		border-radius: 10px;
+		filter: drop-shadow(3px 3px 3px grey);
+		opacity: 0.7;
+ 	}
+ 	 .raid{
+		opacity: 1;
+		margin-left: 20px;
+		color: rgba(42, 118, 109, 1);  		
+ 		filter: brightness(90%) drop-shadow(3px 3px 3px grey); 
+ 		
+ 	}
+</style>
+</head>
+<body >
+	<div style = "height: 10px;"></div>
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/word/list';">
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words list </h7>		
+	</button>
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words lister </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words spliter </h7>		
+	</button>
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words JSON </h7>		
+	</button>		
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Mema builder </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Mema lister </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Memas JSON </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Course builder </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Practicer </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Workflow JSON </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Stats section</h7>		
+	</button>	
+	<button 
+		class="hoverable mygt">	
+		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Admin section </h7>		
+	</button>
+	<img 
+		th:src="@{/images/augal.png}"
+		alt="plants"
+		style="
+		width: 100%;
+		opacity: 0.0;
+	">
+ 				
+			
+	
+<script src = "/aplikacija.js"> </script> 	
+</body>
+</html>
+<!-- 			btn btn-info  -->

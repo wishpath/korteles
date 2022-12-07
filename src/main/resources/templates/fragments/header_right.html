@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<title>Header right</title>
+<style>	
+ 	.hoverable:hover{background-color: rgba(225, 225, 225,1);} 
+  	.hoverable{background-color: rgba(210, 210, 210, 0);} 
+ 	.hoverable:hover .anima{ 
+ 	    animation-name: animacija; 
+ 	    animation-duration: 5s; 
+ 	    animation-iteration-count: 1; 
+ 	    animation-delay: 0; 
+	    animation-play-state: running; 
+  	    animation-timing-function: linear; 
+ 	    animation-fill-mode: none; 
+ 	  } 
+	 	
+	 @keyframes animacija{
+	    0%{ opacity: 0;}
+	    5%{opacity: 0;}
+	    20%{opacity: 0.4;}
+	    90%{opacity: 0.4;}
+	    100%{opacity: 0;}
+	  }
+</style>
+
+</head>
+<body >
+	<div style="
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+	">
+
+		<button 
+			class="hoverable" 				
+			onclick="location.href='/logout'"
+			style="
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+ 			margin-left: 10px;
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			border: none;
+			padding: 0px
+		">	<img 
+				th:src="@{/images/monalisa.png}"
+				alt="Settings icon: gear"
+				style="
+				margin-top: 4px;
+				height: 32px;
+ 				border-radius: 20px;">
+			<div 
+				class = "anima"		
+				style = "
+				margin-top: 9px; 
+				z-index:9999;
+				background-color: black;
+				color: white;
+ 				opacity: 0;
+				border-radius: 9px;
+				font-size:14px;
+				height: 20px;
+				padding-right: 3px;
+				padding-left: 3px;
+		">Logout</div></button>
+
+		<button 
+			class="hoverable"
+			name="settings" 
+			type="submit" 
+			value="x"			
+			style="
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+ 			margin-left: 0px;
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			border: none;
+			padding: 0px
+		">	
+			<img 
+				th:src="@{/images/gear_b.png}"
+				alt="Settings icon: gear"
+				style="
+				margin-top: 10px;
+				height: 20px;
+ 				filter:brightness(75%) drop-shadow(3px 3px 3px grey);
+				border-radius: 20px;
+				opacity: 0.65;
+			">
+			<div 
+				class = "anima"
+				style = "
+				margin-top: 15px; 
+				z-index:9999;
+				background-color: black;
+				color: white;
+ 				opacity: 0;
+				border-radius: 9px;
+				font-size:14px;
+				height: 20px;
+				padding-right: 3px;
+				padding-left: 3px;
+			">Settings</div>
+		</button>
+		
+		<button 
+			class="hoverable"			
+			name="settings" 
+			type="submit" 
+			value="x"			
+			style="
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+ 			margin-left: 10px;
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			border: none;
+			padding: 0px;
+		">	
+			<img 
+				th:src="@{/images/info_b.png}"
+				alt="Settings icon: gear"
+				style="
+				margin-top: 10px;
+				height: 20px;
+ 				filter: brightness(75%) drop-shadow(3px 3px 3px grey);
+				border-radius: 20px;
+				opacity: 0.65;
+			">
+			<div 
+				class = "anima"
+				style = "
+				margin-top: 15px; 
+				z-index:9999;
+				background-color: black;
+				color: white;
+ 				opacity: 0;
+				border-radius: 9px;
+				font-size:14px;
+				height: 20px;
+				padding-right: 3px;
+				padding-left: 3px;
+			">Info</div>
+		</button>
+		
+		<h7 
+		class = "raid"
+		style ="
+		opacity: 1;
+		margin-left: 20px;
+		"> You're logged in as 
+		<span sec:authentication="name"></span> 
+		</h7>
+			
+	</div>
+</body>
+</html>
+<!-- 			btn btn-info  -->

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+	rel="stylesheet" 
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+	crossorigin="anonymous">
+
+<title>Update Word</title>
+</head>
+<body>
+	<form 
+	  action="#" 
+	  th:action="@{/word/update/{id}(id=${word.id})}" 
+	  th:object="${word}" 
+	  method="post"
+	  style="
+	  padding:30px;
+	">	  
+		<div><textarea			
+			th:field="*{wordx}" 
+			id="wordx" 
+			name="wordx" 
+			rows="1" 
+			cols="50" 
+			placeholder="Word in Spanish"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;
+		"></textarea></div>				
+		<div><span 	
+			th:if="${#fields.hasErrors('wordx')}" 
+			th:errors="*{wordx}"
+			style="
+			color: red;
+		"></span></div>
+		
+		<br>
+		
+		<div><textarea 
+			th:field="*{translation}"			
+			id="translation" 
+			name="translation"
+ 			rows="5" 
+ 			cols="5"
+			placeholder="Translation and description in English"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;			
+		"></textarea></div>
+			
+		<br>
+		
+ 		<div><textarea 
+			th:field="*{frequencyNr}" 
+			id="frequencyNr" 
+			name="frqeuencyNr" 
+			rows="1" 
+			cols="50" 
+			placeholder="Frequency number (optional, if known)"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;				
+		"></textarea></div>
+		 	
+		<br>
+		
+		<div><input
+			type="submit" 
+			value="Update word" 
+			class="btn btn-info"
+			style="		
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		"></div> 
+	     
+	</form>
+</body>
+</html>

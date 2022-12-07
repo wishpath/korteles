@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Header mid</title>
+<style>
+    input:focus, textarea:focus, select:focus{outline: none;}  
+    .onHover:hover{background-color: rgba(210, 210, 210, 1);}   
+  	.onHover{background-color: rgba(210, 210, 210, 0);}
+  	.onHover:hover .anima{
+  	 	animation-name: animacija; 
+ 	    animation-duration: 5s; 
+ 	    animation-iteration-count: 1; 
+ 	    animation-delay: 0; 
+	    animation-play-state: running; 
+  	    animation-timing-function: linear; 
+ 	    animation-fill-mode: none; 
+  	}
+	
+	
+	
+	
+</style>
+</head>
+<body>
+		<form  
+			action="" 						
+			style="
+				display: flex;
+				align-items: center;
+				background-color: rgba(210, 210, 210, 0);
+				border-color: rgba(210, 210, 210, 0);
+				height: 100%;
+				flex-grow: 1;				
+				">
+			
+				<button
+					class="onHover"
+					type="submit"
+					style="
+	 				display: flex;  
+	  				flex-direction: column;  
+	 				align-items: center;  
+	   				justify-content: flex-start;  
+					border-radius: 20px;
+					width: 40px;
+					height: 40px;
+	  				border-color: rgba(210, 210, 210, 0); 
+					height: 100%;
+					border: none;
+					padding: 0px
+					">	<img 
+							th:src="@{/images/search_nobg.png}"
+							alt="search icon: magnifying glass"
+							style="
+	 	  					margin-top: 11px;   
+							height: 18px;
+							filter: drop-shadow(3px 3px 3px grey);
+							opacity: 0.3; 					
+						">
+						<div
+							class = "anima"	
+							style = "
+	 						margin-top: 15px; 
+							z-index:9999;
+							background-color: black;
+							color: white;
+							opacity: 0;
+							border-radius: 9px;
+							font-size:14px;
+							height: 20px;
+							padding-right: 3px;
+							padding-left: 3px;
+						">Search</div>
+				</button>
+				
+ 			<input 
+ 				id = searchInput
+ 				onclick = "setColor()"
+ 				type="text" 
+ 				placeholder="Search.." 
+ 				name="search" 
+ 				size="30"		
+ 				style="
+ 				font-size:15px;
+				background-color: rgba(210, 210, 210, 0); 
+				border-color: rgba(210, 210, 210, 0);
+				border-radius: 10px;
+				flex-grow: 1; 
+			">		
+		</form>	
+		<button 
+			class="onHover"
+			name="settings" 
+			type="submit" 
+			value="x"			
+			style="
+			display: flex;
+			flex-direction: column; 
+			justify-content: flex-start;
+			align-items: center;
+ 			margin-left: 0px;
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			border: none;
+			padding: 0px
+		">	
+			<img 
+				th:src="@{/images/sliders.png}"
+				alt="Settings icon: sliders"
+				style="
+				margin-top: 10.5px;
+				height: 19px;
+ 				filter: drop-shadow(3px 3px 3px grey);
+				opacity: 0.21;
+			">
+			<div 
+				class = "anima"	
+				style = "
+				margin-top: 15px; 
+				z-index:9999;
+				background-color: black;
+				color: white;
+				opacity: 0;
+				border-radius: 9px;
+				font-size:14px;
+				height: 20px;
+				width: 105px;
+				padding-right: 3px;
+				padding-left: 3px;
+			">Avanced search</div>
+	
+		</button>
+	
+</body>
+</html>
