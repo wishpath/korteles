@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import lombok.RequiredArgsConstructor;
 import lt.codeacademy.entities.Word;
-import lt.codeacademy.services.UserService;
 import lt.codeacademy.services.WordService;
 
 
@@ -29,7 +27,7 @@ import lt.codeacademy.services.WordService;
 public class WordsController {
 
 	@Autowired
-	WordService service;
+	WordService wordService;
 	String currentCategory = "";
 
 	@GetMapping	
@@ -37,9 +35,9 @@ public class WordsController {
 		return "redirect:/word/list";
 	}
 
-	@GetMapping("/readfile")
+	@GetMapping("/readfile") //reads words from text file
 	public String readFile() throws FileNotFoundException, IOException{
-		service.writeFromFileToDb();
+		wordService.writeFromFileToDb();
 		return "redirect:/word/list";
 	}
 	
@@ -59,26 +57,26 @@ public class WordsController {
 			System.out.println("add post error");
 			return "/word/add-word";
 		}
-		service.save(Word);
+		wordService.save(Word);
 		return "redirect:/word";
 	}
 
 	
 	@GetMapping("/list")
 	public String showWordList(Model model) {
-		Iterable<Word> it = service.findAll();		
-		if (!service.findAll().iterator().hasNext()) {			
+		Iterable<Word> it = wordService.findAll();		
+		if (!wordService.findAll().iterator().hasNext()) {			
 			System.out.println("null");
 			it = null;
 		}			
 		else {	
 			HashSet<String> categories = new HashSet<String>();
-			for (Word s: it) categories.add(service.getFirstLetter(s));
+			for (Word s: it) categories.add(wordService.getFirstLetter(s));
 			model.addAttribute("categories", categories);
 		}
 		
 		model.addAttribute("words", it);
-		model.addAttribute("category", "All");  // ar vis dar reik?
+		model.addAttribute("category", "All");  
 		model.addAttribute("categorymsg", "Showing words, starting with letter:");
 		currentCategory = "All"; // ar vis dar reik?
 		return "/word/list-word";
@@ -87,7 +85,7 @@ public class WordsController {
 	
 	@GetMapping("/edit/{id}")
 	public String showUpdateForm(@PathVariable("id") long id, Model model) {
-		Word word = service.findById(id) // Word klasei tinka Optional<Word> :/
+		Word word = wordService.findById(id) // Word klasei tinka Optional<Word> :/
 				.orElseThrow(() -> new IllegalArgumentException("Invalid Word Id:" + id));
 		model.addAttribute("word", word);
 		return "word/update-word";
@@ -99,14 +97,14 @@ public class WordsController {
 			word.setId(id);
 			return "word/update-word";
 		}
-		service.save(word);
+		wordService.save(word);
 		return "redirect:/word/list";
 	}
 	
 	
 	@GetMapping("/show/{id}")
 	public String show(@PathVariable("id") long id, Model model) {
-		Word word = service.findById(id)
+		Word word = wordService.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid Word Id:" + id));
 		System.out.println("radau " + word );
 		model.addAttribute("word", word);
@@ -115,16 +113,16 @@ public class WordsController {
 
 	@GetMapping("/delete/{id}")
 	public String deleteStraipnis(@PathVariable("id") long id, Model model) {
-		Word word = service.findById(id)
+		Word word = wordService.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-		service.delete(word);
+		wordService.delete(word);
 		return 	"redirect:/word/list";
 	}
 	
 	@GetMapping("/filtered/{category}")
 	public String showFilteredList(@PathVariable("category") String category, Model model) {
-		Iterable<Word> it = service.findAll();		
-		if (!service.findAll().iterator().hasNext()) {	// jei nerado straipsniu		
+		Iterable<Word> it = wordService.findAll();		
+		if (!wordService.findAll().iterator().hasNext()) {	// jei nerado žodžių		
 			it = null;
 		}			
 		else {}
@@ -133,8 +131,8 @@ public class WordsController {
 		String matcher = "^" + category;
 		
 		for (Word s: it) {
-			if (service.getFirstLetter(s).matches(matcher)) filtered.add(s);
-			categories.add(service.getFirstLetter(s));
+			if (wordService.getFirstLetter(s).matches(matcher)) filtered.add(s);
+			categories.add(wordService.getFirstLetter(s));
 		}
 		model.addAttribute("words", filtered);
 		model.addAttribute("categorymsg", "Showing words, starting with letter: ");
@@ -142,7 +140,6 @@ public class WordsController {
 		model.addAttribute("category", category);
 		currentCategory = category; //ar vis dar reik?
 
-		
 		return "/word/list-word";
 	}
 	

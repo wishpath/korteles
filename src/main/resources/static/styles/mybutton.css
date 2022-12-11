@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+.addmybtn {
+	border: none;
+	background-color: rgba(185, 220, 216, 1);
+	width: 450px;
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+
+.addmybtn:hover {
+/* 	background-color: rgba(153, 204, 198, 1); */
+	background-color: rgba(170, 212, 207, 1);
+}
+
+.addmybtnl {
+	width: 450px;
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+
+.addmybtnl:hover {
+	background-color: rgb(243, 243, 243, 1);
+}

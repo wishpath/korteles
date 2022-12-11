@@ -49,19 +49,16 @@ public class WordService {
 			System.out.println("failo skaitymas");
 			File file = new File("1-4978.txt"); 								
 			try (BufferedReader br = new BufferedReader(new FileReader(file))) { 		
-				
-				
-				
+			
 				String wordx = null;
 				String translation = null;
 				Long frequencyNr = 0L;
-				
-				
+						
 				do {													
 					frequencyNr += 1;			
 					wordx = br.readLine();
 					translation = br.readLine();
-					rep.save(new Word(null, wordx, translation, frequencyNr));	
+					rep.save(new Word(null, wordx, translation, frequencyNr, null));	//paskutinis null pridetas veliau
 				} while(wordx!=null && translation!=null);
 		}
 	}

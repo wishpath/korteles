@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/styles/main.css">
 <title>Menu</title>
 <style>	
  	.mygt{
@@ -39,20 +40,36 @@
 		<h7 class = "raid"> Words list </h7>		
 	</button>
 	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Words lister </h7>		
-	</button>	
-	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Words spliter </h7>		
+		class="hoverable mygt"
+		onclick="location.href='/allwords';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words JSON </h7>		
 	</button>
 	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Words JSON </h7>		
-	</button>		
+		class="hoverable mygt"
+		onclick="location.href='/allusers';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Users JSON </h7>		
+	</button>
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/word/readfile';">
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words db fill </h7>		
+	</button>
+	
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/wordsplit/adddata';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Wordsplit db add </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/wordsplit/list';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Wordspliter </h7>		
+	</button>	
 	<button 
 		class="hoverable mygt">	
 		<img th:src="@{/images/icon.png}" alt="x" class="pav">

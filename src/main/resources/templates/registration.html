@@ -2,12 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="/styles/main.css">
 
 <title>Welcome to Memas!</title>
 </head>
@@ -71,8 +66,19 @@
 		    <button 
 		    	type="submit" 
 		    	th:text="#{label.form.submit}"
-		    	class="btn btn-info"
-				style="
+				class="btn btn-info addmybtn" 
+		    ></button>
+		     		    	
+		    <br>
+		</form>
+		<div><button 						
+			onclick="location.href='/custom';"
+			class="btn btn-light addmybtnl"
+		>Sign in</button></div>
+	</div>
+</body>
+</html>
+<!-- 				style="
 				border: none;
 				background-color: rgba(185, 220, 216, 1);
 				margin: auto;
@@ -80,19 +86,4 @@
 				display: block;
 				filter: drop-shadow(3px 3px 3px grey);
 				border-radius: 15px;
-		    "></button>
-		    <br>
-		</form>
-		<div><button 						
-			onclick="location.href='/custom';"
-			class="btn btn-light"
-			style="
-			margin: auto;
-			width: 450px;
-			display: block;
-			filter: drop-shadow(3px 3px 3px grey);
-			border-radius: 15px;
-		">Sign in</button></div>
-	</div>
-</body>
-</html>
+		    " -->
