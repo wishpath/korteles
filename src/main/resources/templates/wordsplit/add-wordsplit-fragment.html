@@ -8,15 +8,17 @@
     <title>Add Word</title>
 </head>
 <body>
-	<form action="#" th:action="@{/word/addw}" th:object="${word}" method="post" style="padding:30px">
-			
+	<form action="#" th:action="@{/wordsplit/addw/{id}(id=${selected.id})}" th:object="${wordsplit}" method="post" style="padding:30px">
+		<h3 th:text="${selected.wordx} + ': ' + ${selected.translation}" style="color:rgba(80,80,80,1);"></h3>
+		<br>
+		<span class="tag"  th:text="'General form: &quot;' + ${selected.wordx} + '&quot;'" > </span>	
 		<div><textarea			
-			th:field="*{wordx}" 
-			id="wordx" 
-			name="wordx" 
+			th:field="*{word}" 
+			id="word" 
+			name="word" 
 			rows="1" 
 			cols="50" 
-			placeholder="Word in Spanish"
+			placeholder="Specific form"
 			class="form-control"
 			style="
 			width:100%;
@@ -24,21 +26,22 @@
 			resize: none;
 		"></textarea></div>				
 		<div><span 	
-			th:if="${#fields.hasErrors('wordx')}" 
-			th:errors="*{wordx}"
+			th:if="${#fields.hasErrors('word')}" 
+			th:errors="*{word}"
 			style="
 			color: red;
 		"></span></div>
 		
 		<br>
 		
+		<span class="tag"  th:text="'General translation: &quot;' + ${selected.translation} + '&quot;'" > </span>	
 		<div><textarea 
 			th:field="*{translation}"			
 			id="translation" 
 			name="translation"
  			rows="5" 
  			cols="5"
-			placeholder="Translation and description in English"
+			placeholder="Specific meaning"
 			class="form-control"
 			style="
 			width:100%;
@@ -48,7 +51,7 @@
 			
 		<br>
 		
- 		<div><textarea 
+<!--  		<div><textarea 
 			th:field="*{frequencyNr}" 
 			id="frequencyNr" 
 			name="frequencyNr" 
@@ -60,13 +63,13 @@
 			width:100%;
 			border-radius: 15px;
 			resize: none;				
-		"></textarea></div>
+		"></textarea></div> -->
 		 
 		<br>
 		
 		<div><input  
 			type="submit" 
-			value="Add word" 
+			value="Add wordsplit" 
 			class="btn btn-info"
 		   	style="		
 	  		border: none;

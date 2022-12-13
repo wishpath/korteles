@@ -28,6 +28,7 @@ public class Word {
 	@OneToMany (mappedBy= "parent")
 	List<Wordsplit> wordsplits;
 	
+	
 	@Override
 	public String toString() {
 		return "Word ["+ "wordx=" + wordx + ", translation=" + translation + ", frequencyNr=" + frequencyNr

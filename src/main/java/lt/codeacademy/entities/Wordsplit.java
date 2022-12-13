@@ -1,24 +1,24 @@
 package lt.codeacademy.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Data @Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class Wordsplit {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,14 +30,16 @@ public class Wordsplit {
 	//@JsonManagedReference
 	@JsonBackReference
 	@ManyToOne
-	@JoinColumn // uždėjau ir po to netikrinau
+	@JoinColumn //uždėjau ir po to netikrinau
 	Word parent;
+	
+	@ManyToMany(mappedBy = "wordsplits")
+	@JsonBackReference
+	List<Mema> memas;
 	
 	//Double frequencySplitFractionWeigt; //is parent
 	//String grammar; //pvz verb_regular, tuomet formos automatinės, jei verb_irregular - formos prie additionalform // 
 	//@OneToMany Wordform additionalform // prie formos parasyta ar regular
-	//@ManyToMany Mema mema;
-	
 	
 	
 	//private String espanol;

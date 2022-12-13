@@ -47,20 +47,19 @@ public class WordsController {
 	}
 	
 	@GetMapping("/add")
-	public String showNewWordForm(Word Word) {
+	public String showNewWordForm(Word word) {
 		return "/word/add-word";
 	}
 	
 	@PostMapping("/addw")
-	public String addWord(@Valid Word Word, BindingResult result, Model model) {
+	public String addWord(@Valid Word word, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			System.out.println("add post error");
 			return "/word/add-word";
 		}
-		wordService.save(Word);
+		wordService.save(word);
 		return "redirect:/word";
 	}
-
 	
 	@GetMapping("/list")
 	public String showWordList(Model model) {
@@ -82,7 +81,6 @@ public class WordsController {
 		return "/word/list-word";
 	}
 
-	
 	@GetMapping("/edit/{id}")
 	public String showUpdateForm(@PathVariable("id") long id, Model model) {
 		Word word = wordService.findById(id) // Word klasei tinka Optional<Word> :/
@@ -100,7 +98,6 @@ public class WordsController {
 		wordService.save(word);
 		return "redirect:/word/list";
 	}
-	
 	
 	@GetMapping("/show/{id}")
 	public String show(@PathVariable("id") long id, Model model) {

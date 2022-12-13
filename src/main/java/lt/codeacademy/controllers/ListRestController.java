@@ -29,7 +29,7 @@ public class ListRestController {
 	
 	@GetMapping("/allwords")
 	public ResponseEntity<Iterable<Word>> getWords(){
-		return ResponseEntity.ok().body(wordService.findAll());
+		return ResponseEntity.ok().body(wordService.findAll()); // veikia ir taip ¯\_(ツ)_/¯
 	}
 	
 	@GetMapping("/allwordsplits")

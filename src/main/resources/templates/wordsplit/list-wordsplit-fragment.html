@@ -18,7 +18,8 @@
 ">
   <h2 th:case="null">No words yet!</h2>
      <div th:case="*">
-            <h3 style= "color:rgba(80,80,80,1);">Wordsplitter</h3>
+            <h3 th:if="${selected == null}"style= "color:rgba(80,80,80,1);">Wordsplitter</h3>
+            <h3 th:if="${selected != null}" th:text=" 'Wordsplitter: ' + ${selected.wordx}" style="color:rgba(80,80,80,1);"></h3>
 
 			<br>
 			
@@ -30,45 +31,68 @@
 			  </div>
 			</div>
 			<div class="dropdown" th:if="${selected != null}">
-			  <button onclick="myFunction()" class="dropbtn btn btn-light addmybtnl">Click to select a Word</button>
+			  <button onclick="myFunction()" class="dropbtn btn btn-light addmybtnl">Click to select another Word</button>
 			  <div id="myDropdown" class="dropdown-content">
 			    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
 			    <a th:each="wrd : ${words}" th:text= "${wrd.wordx}"	th:href="@{/wordsplit/filtered/{selected_id}    (selected_id=${wrd.id})}" ></a>
 			  </div>
 			</div>
 						
-			<br><br><br><br>
+			<br><br><br>
 		    
 			
-            <table 
-            	th:if="${selected != null}"
-            	class = "table table-hover "
-			>
-<!--                <thead> -->
-                    <tr style= "border-bottom: 1px solid #ddd; ">
-                        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Selected: word</th>
-               			<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Selected: translation</th>
-               			<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;;">Selected: frequency number</th>
-    
-                    </tr>
-<!--                 </thead> -->
+         <table 
+           	th:if="${selected != null}"
+           	class = "table table-hover "
+		>
+
+                <tr style= "border-bottom: 1px solid #ddd; ">
+                    <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Selected: word</th>
+            		<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Selected: translation</th>
+            		<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;;">Selected: frequency number</th>
+ 
+                 </tr>
+
              <tbody style = "border-radius: 15px;">
                 <tr style = "border-radius: 15px;">
           			<td><a class="href" th:href="@{/word/show/{id}(id=${selected.id})}" th:text="${selected.wordx}"> </a></td>
           			<td><a class="href" th:href="@{/word/show/{id}(id=${selected.id})}" th:text="${selected.translation}"> </a></td>       			
-          			<td><a class="href" th:href="@{/word/show/{id}(id=${selected.id})}" th:text="${selected.frequencyNr}"> </a></td>       			
+          			<td><a class="href" th:href="@{/word/show/{id}(id=${selected.id})}" th:text="${selected.frequencyNr}"> </a></td>     			
 
                 </tr>
-            </tbody> 
-        </table> 
+            </tbody>
+        </table>  
     </div> 
-    <br>   
+    <br><br>    
     <p><a
     	th:if="${selected != null}"
     	type="button" 
     	class="btn btn-info addmybtn" 
-    	href="/wordsplit/add"
+    	th:href="@{/wordsplit/add/{id}(id=${selected.id})}"
+    	
 	>Add a new sub-form and sub-meaning</a></p>
+	
+	<br>
+ <table class = "table table-hover " th:if="${selected != null}">
+
+    <tr style= "border-bottom: 1px solid #ddd; ">
+        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Sub-form</th>
+		<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Sub-meaning</th>
+        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Edit</th>
+        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid rgb(171, 171, 63);">Delete</th>
+    </tr>
+
+	<tbody style = "border-radius: 15px;">
+	    <tr th:each="wordsplit : ${selectedws}" style = "border-radius: 15px;">
+		<td><a class="href" th:href="@{/wordsplit/show/{id}(id=${wordsplit.id})}" th:text="${wordsplit.word}"> </a></td>
+		<td><a class="href" th:href="@{/wordsplit/show/{id}(id=${wordsplit.id})}" th:text="${wordsplit.translation}"> </a></td>       			
+	    <td><a class="href" th:href="@{/wordsplit/edit/{id}(id=${wordsplit.id})}">Edit</a></td>
+	    <td><a class="href" th:href="@{/wordsplit/delete/{id}(id=${wordsplit.id})}">Delete</a></td>
+	    </tr>
+	</tbody>
+</table> 
+	
+	
 </div> 
 </body>
 </html>

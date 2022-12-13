@@ -17,7 +17,7 @@
     padding: 15px;
 ">	
 
-	<header th:insert="fragments/header_left.html" style="
+	<header th:insert="/fragments/header_left.html" style="
 		background-color: rgba(230, 230, 230, 0);
 	  	width: auto;
 		height: auto;
@@ -30,7 +30,7 @@
 	
 	<header
 		id = headerSearch 
-		th:insert="fragments/header_mid.html" 
+		th:insert="/fragments/header_mid.html" 
 		style="
 		background-color: rgba(230, 230, 230, 0.65);
 	  	width: auto;
@@ -41,7 +41,7 @@
 		justify-content: space-between;
 	"></header>
 	
-	<header th:insert="fragments/header_right.html" style="
+	<header th:insert="/fragments/header_right.html" style="
 		background-color: rgba(230, 230, 230, 0);
 	  	width: auto;
 		height: auto;
@@ -50,7 +50,7 @@
 		grid-area: 1/5/2/6;
 	"></header>
 	
-	<aside th:insert="fragments/menu.html" style="
+	<aside th:insert="/fragments/menu.html" style="
 		background-color: rgba(230, 230, 230, 0);
 	  	width: auto;
 		height: auto;
@@ -61,15 +61,17 @@
   		gap: 25px; 
 	"></aside>
 	
-	<article th:insert="word/add-word-fragment.html"  style="
+ 	<article th:insert="/wordsplit/add-wordsplit-fragment.html" style="
 		background-color: rgba(255, 255, 255, 1);
 	  	width: auto;
 		height: auto;
 		border-radius: 20px;
 		grid-area: 3/3/4/6;		
-	"></article>
+	"></article> 
 
-	
+<!-- 	"/wordsplit/add-wordsplit-fragment.html" -->
+<!-- th:insert="/wordsplit/add-wordsplit-fragment.html" -->
+<!-- /aix_korteles/src/main/resources/templates/wordsplit/add-wordsplit-fragment.html -->
 
 <script src = "aplikacija.js"> </script> 
 </body>
