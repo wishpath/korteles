@@ -3,7 +3,6 @@ const url = 'http://localhost:8080/allusers/'
 
 const loadDataSimple = () => {
     fetch(url)
-        //.then( response => response.json()  )
         .then( response => { 
             if( response.ok ){
                 console.log( response );
