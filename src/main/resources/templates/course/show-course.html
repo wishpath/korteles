@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/styles/main.css">
+<title>Show course</title>
+</head>
+<body class="mainbody">	
+	<header 
+		class="headerleft"
+		th:insert="/fragments/header_left.html" 
+	></header>
+	
+	<header
+		id = headerSearch 
+		class="headermid"
+		th:insert="/fragments/header_mid.html" 
+	></header>
+	
+	<header 
+		class="headerright"
+		th:insert="/fragments/header_right.html" 
+	></header>
+	
+	<aside 
+		class="mainmenu"
+		th:insert="/fragments/menu.html" 
+	></aside>
+	
+	<article 
+		class= "mainarticle"
+		th:insert="/course/show-course-fragment.html"
+	></article>
+
+	<script src = "/aplikacija.js"> </script> 
+</body>
+</html>

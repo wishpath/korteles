@@ -53,10 +53,8 @@ public class MainController {
 	}
 	
 	@PostMapping("/registration")
-	public ModelAndView registerUserAccount(
-	  @ModelAttribute("user")  User userDto,  HttpServletRequest request,  Errors errors) {
-	    
-		User registered = userService.registerNewUserAccount(userDto);
+	public ModelAndView registerUserAccount(@ModelAttribute("user")  User userDto,  HttpServletRequest request,  Errors errors) {
+		userService.registerNewUserAccount(userDto);
 	    return new ModelAndView("customLogin", "user", userDto);
 	}
 }

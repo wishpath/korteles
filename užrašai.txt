@@ -1,0 +1,21 @@
+kaip padaryti, kad json'ai:
+	• iš word rodytų split - ir ten užsibaigtų
+	• iš split rodytų word - ir ten užsibaigtų
+??????????????????????????????????????????????
+
+taisyklingos žodžių formos į Wordsplit neįsiskaičiuoja. Tik netaisyklingos
+
+kai pavargsiu - daryt css
+
+padaryti, kad logo on hover taptu is png i gif
+
+word listeryje, listuoti pagal antrą raidę
+
+
+
+
+1. couse lis as  word list
+pridedant memas, žodžiai nyksta iš sąrašo
+
+
+reikia pasakyti frazę iš: rebuso, egiptiestiškų hieroglifų, paveiksliukų

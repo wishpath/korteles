@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data //Lombok: includes @ToString, @EqualsAndHashCode, @Getter / @Setter and @RequiredArgsConstructor together
-@NoArgsConstructor //we need them because empty constructor 
-@AllArgsConstructor //is rewritten by Lombok's @Data
-public class Role { //TODO 06 - Create Role class
+@NoArgsConstructor 
+@AllArgsConstructor 
+public class Role { 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	String name;

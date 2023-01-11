@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/styles/main.css">    
+    <title>Add course</title>
+</head>
+<body>
+	<form action="#" th:action="@{/course/addw}" th:object="${course}" method="post" style="padding:30px">
+			
+		<div><textarea			
+			th:field="*{name}" 
+			id="name" 
+			name="name" 
+			rows="1" 
+			cols="50" 
+			placeholder="Name of the course"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;
+		"></textarea></div>				
+		
+		<br>
+		
+		<div><textarea 
+			th:field="*{description}"			
+			id="description" 
+			name="description"
+ 			rows="5" 
+ 			cols="5"
+			placeholder="Description of the course"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;			
+		"></textarea></div>
+			
+		<br>
+		
+<!-- 		<table> -->
+<!-- 	        <tr> -->
+<!-- 	            <td>Name</td> -->
+<!-- 	            <td><input type="text" th:field="*{name}"></td> -->
+<!-- 	        </tr> -->
+<!-- 	        <tr> -->
+<!-- 	            <td>Mema</td> -->
+<!-- 	            <td> -->
+<!-- 	                <th:block th:each="mema , stat : ${memas}"> -->
+<!-- 	                    <input type="checkbox" th:field="*{memas}" name="memas" th:value="${mema.id}"/> -->
+<!-- 	                    <label th:text="${mema.nonLiteral}" ></label> -->
+<!-- 	                </th:block> -->
+<!-- 	            </td> -->
+<!-- 	        </tr> -->
+<!-- 	        <tr> -->
+<!-- 	            <td colspan="2"><input type="submit" value="Add"/></td> -->
+<!-- 	        </tr> -->
+<!-- 	    </table> -->
+		
+
+
+
+
+		<table  class = "table table-hover " th:if="${memas != null}">
+		    
+			<tr style= "border-bottom: 1px solid #ddd; ">
+			
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Include</th>
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Mema</th>
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Literal</th>
+				<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Non-literal</th>
+<!-- 		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Set non-literal</th> -->
+<!-- 		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid rgb(171, 171, 63);">Delete</th> -->
+		    </tr>
+	
+			<tbody style = "border-radius: 15px;">
+			    <tr 
+			    	th:each="m : ${memas}"
+			    	style = "border-radius: 15px;
+			    ">
+<!-- 			    	th:each="mema , stat : ${memas}" 			     -->
+		            <td>
+		                <th:block >
+		                    <input type="checkbox" th:field="*{memas}" name="memas" th:value="${m.id}"/>
+		                </th:block>
+		            </td>
+	            			    
+					<td>
+						<div class="phrase" th:each="split : ${m.wordsplits}">
+							<button  class="mybutton" th:text= "${split.word}"></button>
+						</div>
+					</td>
+					
+					<td>
+						<div class="phrase" th:each="split : ${m.wordsplits}">
+							<button  class="mybutton " th:text= "${split.translation}"></button>
+						</div>
+					</td>					
+					
+
+					<td style = "width: 500px; "><a th:text="${m.nonLiteral}"> </a></td>       			
+<!-- 				    <td><a class="href" th:href="@{/mema/edit/{id}  (id=${m.id})}">Set non-literal</a></td> -->
+<!-- 				    <td><a class="href" th:href="@{/mema/delete/{id}  (id=${m.id})}">Delete</a></td> -->
+	
+			    </tr>
+			</tbody>
+		</table> 
+		
+		
+		
+		
+			 
+	 
+		<br>
+		
+		<div><input  
+			type="submit" 
+			value="Add course" 
+			class="btn btn-info"
+		   	style="		
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		"></div>
+		
+	</form>      
+</body>
+</html>

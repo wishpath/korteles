@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+
+.tag{
+	margin-left: 13px;
+	color: rgb(222, 222, 222);
+}
+.tagc{
+	margin-left: 186px;
+	color: green;
+	visibility: hidden;	
+}
+
+.tag1{	
+	color: rgb(222, 222, 222);
+	display: inline
+}
+
+.tag2{	
+	color: rgb(50, 50, 50);
+	display: inline
+}
+
+.ml13{
+	margin-left: 13px;
+}
+
+.mt3{
+	margin-top: 3px;
+}

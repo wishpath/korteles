@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Show wordsplit</title>
+    
+</head>
+
+<body>
+  
+     <main   
+    	th:object="${wordsplit}"
+    	style="margin: 30px;" 
+    >
+
+
+        <br>
+        <h4 th:text="'Form: ' + *{word}"></h4>
+         <div >Meaning: [[*{translation}]]</div>
+         <div >Parent word: [[*{parent.wordx}]]/[[*{parent.translation}]]</div>
+ 		
+    </main>
+<!--   th:text="*{translation}"   -->
+<!-- th:text="*{frequencyNr}" -->
+   
+</body>
+</html>

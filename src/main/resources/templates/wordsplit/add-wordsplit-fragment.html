@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/styles/main.css">    
+    <title>Add Word</title>
+</head>
+<body>
+	<form action="#" th:action="@{/wordsplit/addw/{id}(id=${selected.id})}" th:object="${wordsplit}" method="post" style="padding:30px">
+		<h3 th:text="${selected.wordx} + ': ' + ${selected.translation}" style="color:rgba(80,80,80,1);"></h3>
+		<br>
+		<span class="tag"  th:text="'General form: &quot;' + ${selected.wordx} + '&quot;'" > </span>	
+		<div><textarea			
+			th:field="*{word}" 
+			id="word" 
+			name="word" 
+			rows="1" 
+			cols="50" 
+			placeholder="Specific form"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;
+		"></textarea></div>				
+		<div><span 	
+			th:if="${#fields.hasErrors('word')}" 
+			th:errors="*{word}"
+			style="
+			color: red;
+		"></span></div>
+		
+		<br>
+		
+		<span class="tag"  th:text="'General translation: &quot;' + ${selected.translation} + '&quot;'" > </span>	
+		<div><textarea 
+			th:field="*{translation}"			
+			id="translation" 
+			name="translation"
+ 			rows="5" 
+ 			cols="5"
+			placeholder="Specific meaning"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;			
+		"></textarea></div>
+			
+		<br>
+		
+<!--  		<div><textarea 
+			th:field="*{frequencyNr}" 
+			id="frequencyNr" 
+			name="frequencyNr" 
+			rows="1" 
+			cols="50" 
+			placeholder="Frequency number (optional, if known)"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;				
+		"></textarea></div> -->
+		 
+		<br>
+		
+		<div><input  
+			type="submit" 
+			value="Add wordsplit" 
+			class="btn btn-info"
+		   	style="		
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		"></div>
+		
+	</form>     
+</body>
+</html>

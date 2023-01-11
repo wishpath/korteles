@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/styles/main.css">
+
+<title>Set non-literal</title>
+</head>
+<body>
+  	<div 
+	  style="
+	  padding:30px;
+	"> 
+			<div >Phrase: </div> 
+			<div style= "display: inline;">	
+				<div style = "background-color: rgb(192, 201, 243);" class="dropbtn btn btn-light mybutton" th:text= "${mema.nonLiteral}"></div>
+			</div><br><br>
+		
+		
+<!-- 			<div class="ml13"> -->
+<!-- 				<div class="tag2">Literal translation: </div> -->
+<!-- 				<div th:each="split : ${mema.wordsplits}" class="tag2" th:text= "${split.translation + ' '}"></div> -->
+<!-- 			</div><br> -->
+			<div >Literal structure: </div> 
+			<div class="phrase" th:each="split : ${mema.wordsplits}">
+				<button  class="mybutton" th:text= "${split.translation}"></button>
+			</div><br><br>
+
+				
+		
+		<div><textarea			
+
+			id="answer" 
+			name="answer" 
+			rows="5" 
+			cols="50" 
+			placeholder="Your translation here"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;
+		"></textarea></div>				
+<!-- 			th:field="*{nonLiteral}"  -->
+
+		<br>
+		
+<!-- 		<div><input
+			value="Submit answer" 
+			class="btn btn-info"
+			style="		
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		"></div>  -->
+		
+		<button 
+			id=submitb
+			class="btn btn-light addmybtnl"
+			onclick="sayIfCorrect()"
+			style="		
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		">
+			<h7> Submit answer </h7>		
+		</button>
+		
+		<h5 class="tagc" id="tagc"> Correct! </h5>
+		
+		<button 
+			id="nextb"
+			class="btn btn-light addmybtnl"
+			onclick="location.href='/word/list';"
+			style="
+			visibility: hidden;	
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		">
+			<h7> Practice next mema </h7>		
+		</button>
+	     
+ 	</div> 
+</body>
+</html>

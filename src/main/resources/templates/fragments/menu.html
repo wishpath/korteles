@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/styles/main.css">
 <title>Menu</title>
 <style>	
  	.mygt{
@@ -39,44 +40,82 @@
 		<h7 class = "raid"> Words list </h7>		
 	</button>
 	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Words lister </h7>		
-	</button>	
-	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Words spliter </h7>		
+		class="hoverable mygt"
+		onclick="location.href='/allwords';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words JSON </h7>		
 	</button>
 	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Words JSON </h7>		
-	</button>		
+		class="hoverable mygt"
+		onclick="location.href='/allusers';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Users JSON </h7>		
+	</button>
 	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		class="hoverable mygt"
+		onclick="location.href='/allwordsplits';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Wordsplits JSON </h7>		
+	</button>
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/allmemas';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Memas JSON </h7>		
+	</button>
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/allcourses';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Courses JSON </h7>		
+	</button>
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/word/readfile';">
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Words db fill </h7>		
+	</button>
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/wordsplit/splitwords';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Word to wordsplit </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/wordsplit/adddata';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Wordsplit db add </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/mema/adddata';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Mema db add </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/wordsplit/list';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Wordspliter </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/mema/build';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
 		<h7 class = "raid"> Mema builder </h7>		
 	</button>	
 	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Mema lister </h7>		
-	</button>	
-	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Memas JSON </h7>		
-	</button>	
-	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		class="hoverable mygt"
+		onclick="location.href='/course/list';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
 		<h7 class = "raid"> Course builder </h7>		
-	</button>	
+	</button>		
 	<button 
-		class="hoverable mygt">	
-		<img th:src="@{/images/icon.png}" alt="x" class="pav">
-		<h7 class = "raid"> Practicer </h7>		
+		class="hoverable mygt"
+		onclick="location.href='/practice/list';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
+		<h7 class = "raid"> Practicer</h7>		
 	</button>	
 	<button 
 		class="hoverable mygt">	
@@ -86,6 +125,12 @@
 	<button 
 		class="hoverable mygt">	
 		<img th:src="@{/images/icon.png}" alt="x" class="pav">
+		<h7 class = "raid"> Course JSON </h7>		
+	</button>	
+	<button 
+		class="hoverable mygt"
+		onclick="location.href='/practice/stats';">	
+		<img th:src="@{/images/icon_b.png}" alt="x" class="pav">
 		<h7 class = "raid"> Stats section</h7>		
 	</button>	
 	<button 
@@ -103,7 +148,7 @@
  				
 			
 	
-<script src = "/aplikacija.js"> </script> 	
+<!-- <script src = "/aplikacija.js"> </script> 	 -->
 </body>
 </html>
 <!-- 			btn btn-info  -->

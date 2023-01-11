@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/styles/main.css">
+
+<title>Set non-literal</title>
+</head>
+<body>
+ 	<form 
+	  action="#" 
+	  th:action="@{  /mema/update/{id}   (id=${id})}"  
+	  th:object="${mema}" 
+	  method="post"
+	  style="
+	  padding:30px;
+	">
+
+			<div class="ml13">
+				<div class="tag1">Mema: </div>
+				<div th:each="split : ${mema.wordsplits}" class="tag1" th:text= "${split.word + ' '}"></div>
+			</div>
+		
+		
+			<div class="ml13">
+				<div class="tag1">Literal: </div>
+				<div th:each="split : ${mema.wordsplits}" class="tag1" th:text= "${split.translation + ' '}"></div></div>
+		
+		<div><textarea			
+			th:field="*{nonLiteral}" 
+			id="nonLiteral" 
+			name="nonLiteral" 
+			rows="5" 
+			cols="50" 
+			placeholder="Non-literal translation"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;
+		"></textarea></div>				
+
+		<br>
+		
+		<div><input
+			type="submit" 
+			value="Add non-literal" 
+			class="btn btn-info"
+			style="		
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		"></div> 
+	     
+	</form>
+</body>
+</html>
