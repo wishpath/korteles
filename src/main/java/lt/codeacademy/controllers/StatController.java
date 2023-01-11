@@ -23,16 +23,8 @@ public class StatController {
 
 	@GetMapping("/stat")
 	public String stats(Model model) {
-		System.out.println("test1");
-//		Iterable<Course> it = courseService.findAll();		
-//		if (!courseService.findAll().iterator().hasNext()) {			
-//			System.out.println("PracticeController: showLits: null (nerado courses)");
-//			it = null;
-//		}				
-//		model.addAttribute("courses", it);
 		System.out.println("test");
 		return "/stat/stat";
-
 	}
 	
 }
