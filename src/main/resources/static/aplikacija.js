@@ -1,15 +1,8 @@
 
-
-
-
-
-
 const url = 'http://localhost:8080/allusers/'
-//const url = 'http://localhost:8080/users/users'
 
 const loadDataSimple = () => {
     fetch(url)
-        //.then( response => response.json()  )
         .then( response => { 
             if( response.ok ){
                 console.log( response );
@@ -61,14 +54,10 @@ const processData = (arr) => {
     //processing arr as data
 }
 
-//loadDataAsync();
-
 
 const showData = (data) => {
     console.log(data);
 }
-
-//loadDataSimple()
 
 function setColor(){
 	document.getElementById("headerSearch").style.backgroundColor = "rgba(249, 249, 249, 1)"
@@ -81,14 +70,12 @@ const setColor2 = () => {
 		document.getElementById("headerSearch").style.backgroundColor = "rgba(240, 240, 240, 1)"
 }
 
-
 const wordColor = () => {
 	if((document.URL).includes("/word")){
 		document.getElementById("word").style.backgroundColor = "rgba(225, 225, 225, 1)";
 		console.log("žaliuzės")
 	}
 }
-//document.getElementById("searchInput").addEventListener("active cursor", setColor())
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -112,34 +99,6 @@ function filterFunction() {
   }
 }
 
-/*var bgonhovers = document.getElementsByClassName('bgonhover');
-for (var i = 0; i < bgonhovers.length; i++) {
-    bgonhovers[i].onmouseover = function(e) {
-        var color = '#'+Math.floor(Math.random()*16777215).toString(16);
-        var colorString = '0px 0px 30px 0px ' + color;
-        this.style['background-color'] = colorString;
-        this.style['box-shadow'] = colorString;
-        this.style['-webkit-box-shadow'] = colorString;
-        this.style['-moz-box-shadow'] = colorString;
-       
-    }
-    bgonhovers[i].onmouseout = function(e) {
-   	this.style['background-color'] = "none";
-	} 
-}
-
-
-var colors = ['blue','green','red','purple','yellow'];
-
-$('.bgonhover').mouseenter(function() {
-    var rand = colors[Math.floor(Math.random() * colors.length)];
-    $(this).css('background-color', rand);
-});
-
-$('.bgonhover').mouseleave(function() {
-    $(this).css('background-color', '');
-});*/
-
 var xes = document.getElementsByClassName('mybutton');
 console.log("surasti objektai mybutton: " + xes.length)
 
@@ -151,20 +110,6 @@ console.log(test)
 
 var colors = ['rgb(217, 236, 234)','rgb(242, 202, 200)','rgb(192, 201, 243)', 'rgb(234, 234, 196', 'rgb(200, 221, 232)'];
 
-
-/*for (var i = 0; i < xes.length; i++) {
-    xes[i].onmouseover = function(e) {
-        var color = '#'+Math.floor(Math.random()*16777215).toString(16);
-        var rand = colors[Math.floor(Math.random() * colors.length)].toString(16);
-        this.style['background-color'] = rand;
-    } 
-    xes[i].onmouseout = function(e) {
-        this.style['background-color'] = "";
-     }  
-}*/
-
-
-
 function showAlert() {
     alert("The button was clicked!");
 }
@@ -174,16 +119,6 @@ function sayIfCorrect() {
 	submitb = document.getElementById("submitb").style.visibility = "hidden";
 	tagc = document.getElementById("tagc").style.visibility = "visible";
 	nextb = document.getElementById("nextb").style.visibility = "visible";
-//	submitb.style.visibility = "hidden";
 
 }
-
-/*function putColor() {
-    for (var i = 0; i < xes.length; i++) {
-	    xes[i] = function(e) {
-	        var color = '#'+Math.floor(Math.random()*16777215).toString(16);
-	        var rand = colors[Math.floor(Math.random() * colors.length)].toString(16);
-	        this.style['background-color'] = rand;
-		}
-	}
-}*/		
+	
