@@ -23,7 +23,7 @@ public class StatController {
 
 	@GetMapping("/stat")
 	public String stats(Model model) {
-		System.out.println("test");
+		System.out.println("test2");
 		return "/stat/stat";
 	}
 	
