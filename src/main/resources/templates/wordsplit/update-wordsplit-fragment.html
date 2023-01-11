@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/styles/main.css">
+
+<title>Update Wordsplit</title>
+</head>
+<body>
+ 	<form 
+	  action="#" 
+
+	  th:action="@{  /wordsplit/update/{sid}/{id}   (sid=${sid}, id=${wordsplit.id})   }"
+	  
+	  th:object="${wordsplit}" 
+	  method="post"
+	  style="
+	  padding:30px;
+	">
+<!-- 	th:action="@{  /wordsplit/update/{sid}/{id}  (id=${wordsplit.id}, sid=${selected.id})   }" -->
+<!-- 		  th:action="@{/wordsplit/update/{sid}/{id}(id=${wordsplit.id})}" 	   -->
+		<div><textarea			
+			th:field="*{word}" 
+			id="word" 
+			name="word" 
+			rows="1" 
+			cols="50" 
+			placeholder="Form (Spanish)"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;
+		"></textarea></div>				
+		 <div><span 	
+			th:if="${#fields.hasErrors('word')}" 
+			th:errors="*{word}"
+			style="
+			color: red;
+		"></span></div>
+		
+		<br>
+		
+		<div><textarea 
+			th:field="*{translation}"			
+			id="translation" 
+			name="translation"
+ 			rows="5" 
+ 			cols="5"
+			placeholder="Meaning (English)"
+			class="form-control"
+			style="
+			width:100%;
+			border-radius: 15px;
+			resize: none;			
+		"></textarea></div>
+			
+		<br> 	
+		<br>
+		
+		<div><input
+			type="submit" 
+			value="Update wordsplit" 
+			class="btn btn-info"
+			style="		
+	  		border: none;
+			background-color: rgba(185, 220, 216, 1);
+			width: 450px;
+			display: block;
+			filter: drop-shadow(3px 3px 3px grey);
+			border-radius: 15px;
+		"></div> 
+	     
+	</form>
+</body>
+</html>

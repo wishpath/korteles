@@ -16,7 +16,13 @@
 	background-color: rgba(255, 255, 255, 1);
 	border-radius: 20px;
 ">
-  <h2 th:case="null">No words yet!</h2>
+	<div th:case="null">
+		<h2 >No words yet!</h2>
+<!-- 		<h2 th:case="null">No words yet!</h2> -->
+		<br >
+		<a href='/word/readfile'>fill the list from file (takes a while!)</a>
+	</div>
+
            <div th:case="*">
             <h3 style= "color:rgba(80,80,80,1);">List of all words</h3>
 			<br>	

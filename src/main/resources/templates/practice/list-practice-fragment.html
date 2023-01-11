@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>
+	Courses list
+</title>
+<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+<div 
+	th:switch="${courses}"
+	style = "
+	padding:30px; 
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 20px;
+">
+	<div th:case="null">
+		<h2 >No courses yet!</h2>	
+	</div>
+           <div th:case="*">
+            <h3 style= "color:rgba(80,80,80,1);">List of my practice</h3>
+			<br><br>			    
+			
+            <table class = "table table-hover ">
+
+                    <tr style= "border-bottom: 1px solid #ddd; ">
+                        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Name</th>
+               			<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Description</th>
+                        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Practice</th>
+                    </tr>
+
+	             <tbody style = "border-radius: 15px;">
+	                <tr th:each="c : ${courses}" style = "border-radius: 15px;">
+	          			<td><a class="href" th:href="@{/course/show/{id}(id=${c.id})}" th:text="${c.name}"> </a></td>
+	          			<td><a class="href" th:href="@{/course/show/{id}(id=${c.id})}" th:text="${c.description}"> </a></td>       			
+	                   	<td><a class="href" th:href="@{/practice/practice/{id}/{mid} ( id=${c.id} , mid=${c.memas[0].id} ) }">Practice</a></td>
+	                </tr>
+	            </tbody> 
+	        </table> 
+    </div>    
+
+</div> 
+</body>
+</html>
+<!--     	style="		
+  		border: none;
+		background-color: rgba(185, 220, 216, 1);
+		width: 450px;
+		display: block;
+		filter: drop-shadow(3px 3px 3px grey);
+		border-radius: 15px;
+    " -->

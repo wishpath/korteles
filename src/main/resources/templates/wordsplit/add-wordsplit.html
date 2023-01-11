@@ -3,76 +3,35 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="/styles/main.css">
-
-<title>Memas</title>
+<title>Add Wordsplit</title>
 </head>
-
-<body
-	style="
-	background-color: rgb(243, 243, 243); 
-	display: grid;
-    grid-template: 40px 10px 1fr/ 195px 10px 1fr 10px 430px;
-    width: 100%;
-    height: 100vh;
-    padding: 15px;
-">	
-
-	<header th:insert="/fragments/header_left.html" style="
-		background-color: rgba(230, 230, 230, 0);
-	  	width: auto;
-		height: auto;
-		padding: 0px;
-		border-radius: 20px;
-		grid-area: 1/1/2/2;
-		display: flex;
-		align-items: center
-	"></header>
+<body class="mainbody">	
+	<header 
+		class="headerleft"
+		th:insert="/fragments/header_left.html" 
+	></header>
 	
 	<header
 		id = headerSearch 
+		class="headermid"
 		th:insert="/fragments/header_mid.html" 
-		style="
-		background-color: rgba(230, 230, 230, 0.65);
-	  	width: auto;
-		height: auto;
-		border-radius: 20px;
-		grid-area: 1/3/2/4;
-		display: flex;
-		justify-content: space-between;
-	"></header>
+	></header>
 	
-	<header th:insert="/fragments/header_right.html" style="
-		background-color: rgba(230, 230, 230, 0);
-	  	width: auto;
-		height: auto;
-		padding: 0px;
-		border-radius: 20px;
-		grid-area: 1/5/2/6;
-	"></header>
+	<header 
+		class="headerright"
+		th:insert="/fragments/header_right.html" 
+	></header>
 	
-	<aside th:insert="/fragments/menu.html" style="
-		background-color: rgba(230, 230, 230, 0);
-	  	width: auto;
-		height: auto;
-		border-radius: 20px;
-		grid-area: 3/1/4/2;
-		display: flex;
-		flex-direction: column;
-  		gap: 25px; 
-	"></aside>
+	<aside 
+		class="mainmenu"
+		th:insert="/fragments/menu.html" 
+	></aside>
 	
- 	<article th:insert="/wordsplit/add-wordsplit-fragment.html" style="
-		background-color: rgba(255, 255, 255, 1);
-	  	width: auto;
-		height: auto;
-		border-radius: 20px;
-		grid-area: 3/3/4/6;		
-	"></article> 
+	<article 
+		class= "mainarticle"
+		th:insert="/wordsplit/add-wordsplit-fragment.html"
+	></article>
 
-<!-- 	"/wordsplit/add-wordsplit-fragment.html" -->
-<!-- th:insert="/wordsplit/add-wordsplit-fragment.html" -->
-<!-- /aix_korteles/src/main/resources/templates/wordsplit/add-wordsplit-fragment.html -->
-
-<script src = "aplikacija.js"> </script> 
+	<script src = "/aplikacija.js"> </script> 
 </body>
 </html>

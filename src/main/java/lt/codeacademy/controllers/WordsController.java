@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -28,7 +29,7 @@ public class WordsController {
 
 	@Autowired
 	WordService wordService;
-	String currentCategory = "";
+	String currentCategory = ""; // trint?
 
 	@GetMapping	
 	public String wordHome(Word word) {
@@ -36,8 +37,8 @@ public class WordsController {
 	}
 
 	@GetMapping("/readfile") //reads words from text file
-	public String readFile() throws FileNotFoundException, IOException{
-		wordService.writeFromFileToDb();
+	public String writeFromFileToDb() throws FileNotFoundException, IOException{
+		wordService.writeFromFileToDb(4978);
 		return "redirect:/word/list";
 	}
 	
@@ -47,12 +48,12 @@ public class WordsController {
 	}
 	
 	@GetMapping("/add")
-	public String showNewWordForm(Word word) {
+	public String showNewForm(Word word) {
 		return "/word/add-word";
 	}
 	
 	@PostMapping("/addw")
-	public String addWord(@Valid Word word, BindingResult result, Model model) {
+	public String add(@Valid Word word, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			System.out.println("add post error");
 			return "/word/add-word";
@@ -62,10 +63,10 @@ public class WordsController {
 	}
 	
 	@GetMapping("/list")
-	public String showWordList(Model model) {
+	public String showList(Model model) {
 		Iterable<Word> it = wordService.findAll();		
 		if (!wordService.findAll().iterator().hasNext()) {			
-			System.out.println("null");
+			System.out.println("Words Controller: showList(): null (nerado words)");
 			it = null;
 		}			
 		else {	
@@ -90,7 +91,7 @@ public class WordsController {
 	}
 
 	@PostMapping("/update/{id}")
-	public String updateWord(@PathVariable("id") long id, @Valid Word word, BindingResult result, Model model) {
+	public String update(@PathVariable("id") long id, @Valid Word word, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			word.setId(id);
 			return "word/update-word";
@@ -103,40 +104,29 @@ public class WordsController {
 	public String show(@PathVariable("id") long id, Model model) {
 		Word word = wordService.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid Word Id:" + id));
-		System.out.println("radau " + word );
 		model.addAttribute("word", word);
 		return "word/show-word";
 	}
 
 	@GetMapping("/delete/{id}")
-	public String deleteStraipnis(@PathVariable("id") long id, Model model) {
+	public String delete(@PathVariable("id") long id, Model model) {
 		Word word = wordService.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+				.orElseThrow(() -> new IllegalArgumentException("Invalid word Id:" + id));
 		wordService.delete(word);
 		return 	"redirect:/word/list";
 	}
 	
 	@GetMapping("/filtered/{category}")
 	public String showFilteredList(@PathVariable("category") String category, Model model) {
-		Iterable<Word> it = wordService.findAll();		
-		if (!wordService.findAll().iterator().hasNext()) {	// jei nerado žodžių		
-			it = null;
-		}			
-		else {}
-		ArrayList<Word> filtered = new ArrayList<Word>();
-		HashSet<String> categories = new HashSet<String>();
-		String matcher = "^" + category;
-		
-		for (Word s: it) {
-			if (wordService.getFirstLetter(s).matches(matcher)) filtered.add(s);
-			categories.add(wordService.getFirstLetter(s));
-		}
-		model.addAttribute("words", filtered);
+		List<Word> words = wordService.findByText(category);		
+
+		List<String> categories = wordService.getAllFirstLetters();
+				
+		model.addAttribute("words", words);
 		model.addAttribute("categorymsg", "Showing words, starting with letter: ");
 		model.addAttribute("categories", categories);
 		model.addAttribute("category", category);
 		currentCategory = category; //ar vis dar reik?
-
 		return "/word/list-word";
 	}
 	

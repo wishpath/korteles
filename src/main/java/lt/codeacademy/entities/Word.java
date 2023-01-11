@@ -9,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,6 +31,6 @@ public class Word {
 		return "Word ["+ "wordx=" + wordx + ", translation=" + translation + ", frequencyNr=" + frequencyNr
 				+ "]";
 	}
-	
+	 
 	
 }

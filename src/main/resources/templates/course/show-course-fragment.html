@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Show course</title>
+    
+</head>
+
+<body>
+  
+    <main   
+    	th:object="${course}"
+    	style="margin: 30px;" 
+    >
+
+
+        <br>
+        <h3 th:text="*{name}" style= "color:rgba(80,80,80,1);"></h3>
+        	<br>        
+        	<div >Description: [[${course.description}]]</div>
+        	<br><br>
+         
+		<table  class = "table table-hover " >
+		    
+			<tr style= "border-bottom: 1px solid #ddd; ">
+			
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;"></th>
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Mema</th>
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Literal</th>
+				<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Non-literal</th>
+
+		    </tr>
+	
+			<tbody style = "border-radius: 15px;">
+			    <tr 
+			    	th:each="m : ${course.memas}"
+			    	style = "border-radius: 15px;
+			    ">
+			    
+	  
+					<td><a th:text="${#lists.toList(course.memas).indexOf(m) + 1 + '.'}"> </a></td>   
+	            			    
+					<td>
+						<div class="phrase" th:each="split : ${m.wordsplits}">
+							<button  class="mybutton" th:text= "${split.word}"></button>
+						</div>
+					</td>
+					
+					<td>
+						<div class="phrase" th:each="split : ${m.wordsplits}">
+							<button  class="mybutton " th:text= "${split.translation}"></button>
+						</div>
+					</td>	
+									
+					<td style = "width: 500px; "><a th:text="${m.nonLiteral}"> </a></td>       			
+	
+			    </tr>
+			</tbody>
+		</table> 
+    </main> 
+
+   
+</body>
+</html>

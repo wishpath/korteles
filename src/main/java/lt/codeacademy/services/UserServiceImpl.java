@@ -3,7 +3,6 @@ package lt.codeacademy.services;
 import static lt.codeacademy.utils.Utils.USER;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 

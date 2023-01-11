@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>
+	Courses list
+</title>
+<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+<div 
+	th:switch="${courses}"
+	style = "
+	padding:30px; 
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 20px;
+">
+	<div th:case="null">
+		<h2 >No courses yet!</h2>	
+	</div>
+           <div th:case="*">
+            <h3 style= "color:rgba(80,80,80,1);">Stats</h3>
+			<br><br>			    
+			
+			<div >Phrase: </div> 
+			<div style= "display: inline;">	
+				<div style = "background-color: rgb(192, 201, 243);" class="dropbtn btn btn-light mybutton" th:text= "${mema.nonLiteral}"></div>
+			</div><br><br>
+    </div>    
+
+</div> 
+</body>
+</html>
+<!--     	style="		
+  		border: none;
+		background-color: rgba(185, 220, 216, 1);
+		width: 450px;
+		display: block;
+		filter: drop-shadow(3px 3px 3px grey);
+		border-radius: 15px;
+    " -->

@@ -76,17 +76,19 @@
  <table class = "table table-hover " th:if="${selected != null}">
 
     <tr style= "border-bottom: 1px solid #ddd; ">
-        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Sub-form</th>
-		<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Sub-meaning</th>
-        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Edit</th>
-        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid rgb(171, 171, 63);">Delete</th>
+        <th style= "color:rgba(80,80,80,1); border-bottom: 2px solid #1e36a3;">Sub-form</th>
+		<th style= "color:rgba(80,80,80,1); border-bottom: 2px solid #09948f;">Sub-meaning</th>
+        <th style= "color:rgba(80,80,80,1); border-bottom: 2px solid #c7352e;">Edit</th>
+        <th style= "color:rgba(80,80,80,1); border-bottom: 2px solid rgb(171, 171, 63);">Delete</th>
     </tr>
 
 	<tbody style = "border-radius: 15px;">
 	    <tr th:each="wordsplit : ${selectedws}" style = "border-radius: 15px;">
 		<td><a class="href" th:href="@{/wordsplit/show/{id}(id=${wordsplit.id})}" th:text="${wordsplit.word}"> </a></td>
 		<td><a class="href" th:href="@{/wordsplit/show/{id}(id=${wordsplit.id})}" th:text="${wordsplit.translation}"> </a></td>       			
-	    <td><a class="href" th:href="@{/wordsplit/edit/{id}(id=${wordsplit.id})}">Edit</a></td>
+	    <td><a class="href" th:href="@{  /wordsplit/edit/{sid}/{id}  (id=${wordsplit.id}, sid=${selected.id})   }">Edit</a></td>
+<!-- 	    <a th:href="@{'/pathvars/single/' + ${item.id}}"> -->
+<!--         <a th:href="@{/pathvars/item/{itemId}/detail/{dtlId}(itemId = ${item.id}, dtlId = ${dtl.id})}"> -->
 	    <td><a class="href" th:href="@{/wordsplit/delete/{id}(id=${wordsplit.id})}">Delete</a></td>
 	    </tr>
 	</tbody>

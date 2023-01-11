@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class Mema {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "mema_id")
 	Long id;
-	
+	String nonLiteral;
 
 	@ManyToMany
 	@JoinTable(name = "mema_wordsplit",  //jungiamosios lenteles pavadinimas
@@ -32,4 +33,8 @@ public class Mema {
 	inverseJoinColumns = @JoinColumn(name = "wordsplit_id")) //column pavadinimas jungiamojoje lenteleje
 	@JsonManagedReference
 	List<Wordsplit> wordsplits;
+	
+	@ManyToMany(mappedBy = "memas")
+	@JsonBackReference
+	List<Course> courses;
 }

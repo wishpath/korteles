@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>
+	Mema builder
+</title>
+<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body >
+	<div 
+		th:switch="${memas}"
+		style = "
+		padding:30px; 
+		background-color: rgba(255, 255, 255, 1);
+		border-radius: 20px;
+	">
+		<h2 th:case="null">No memas yet!</h2>
+		<div th:case="*">
+			<h3 th:if="${selected == null}" style= "color:rgba(80,80,80,1);">Mema builder</h3>
+<!-- 			<h3 th:if="${selected != null}" th:text=" 'Wordsplitter: ' + ${selected.wordx}" style="color:rgba(80,80,80,1);"></h3> -->
+
+			<br>
+
+
+			<div  class="dropdown" th:if="${id1 != null}" >
+				<button  class="dropbtn btn btn-light addmybtn1" th:text= "${wordsplit1.word}"></button>
+			</div>
+			
+			<div class="dropdown" th:if="${id2 != null}" >
+ 				<button  class="dropbtn btn btn-light addmybtn2" th:text= "${wordsplit2.word}"></button> 
+			</div>
+			
+			<div class="dropdown" th:if="${id3 != null}" >
+ 				<button  class="dropbtn btn btn-light addmybtn3" th:text= "${wordsplit3.word}"></button> 
+			</div>
+			
+			<div class="dropdown" th:if="${id4 != null}" >
+  				<button  class="dropbtn btn btn-light addmybtn4" th:text= "${wordsplit4.word}"></button>
+			</div>
+			
+			<div class="dropdown" th:if="${id5 != null}" >
+  				<button  class="dropbtn btn btn-light addmybtn5" th:text= "${wordsplit5.word}"></button>
+			</div>
+			
+<!-- 			<span th:text="${'memas: ' + #lists.size(memas)}">[Number of Elements]</span> -->
+<!-- 			<span th:text="${', wordsplits: ' + #lists.size(wordsplits)}">[Number of Elements]</span> -->
+
+			<div class="dropdown" th:if="${id1 == null}">
+				<button onclick="myFunction()" class="dropbtn btn btn-light addmybtnlx"> Click to add first wordsplit </button>
+				<div id="myDropdown" class="dropdown-content">
+					<input type="text" placeholder="Add worsplit.." id="myInput" onkeyup="filterFunction()">
+					<a th:each="ws : ${wordsplits}" th:text= "${ws.word +'&emsp;['+ ws.translation + ']'}"	th:href="@{/mema/build/{id1}    (id1=${ws.id})}" ></a>
+				</div>
+			</div>
+		
+			
+			<div class="dropdown" th:if="${id1 != null and id2 ==null}">
+				<button onclick="myFunction()" class="dropbtn btn btn-light addmybtnlx"> + </button>
+				<div id="myDropdown" class="dropdown-content">
+					<input type="text" placeholder="Add worsplit.." id="myInput" onkeyup="filterFunction()">
+					<a 
+						th:each="ws : ${wordsplits}" 
+						th:text= "${ws.word +'&emsp;['+ ws.translation + ']'}"
+						th:href="@{/mema/build/{id1}/{id2}    ( id1=${id1} , id2=${ws.id} )}"	
+					></a>
+				</div>
+			</div>
+			
+			<div class="dropdown" th:if="${id2 != null and id3 ==null}">
+				<button onclick="myFunction()" class="dropbtn btn btn-light addmybtnlx"> + </button>
+				<div id="myDropdown" class="dropdown-content">
+					<input type="text" placeholder="Add worsplit.." id="myInput" onkeyup="filterFunction()">
+					<a 
+						th:each="ws : ${wordsplits}" 
+						th:text= "${ws.word +'&emsp;['+ ws.translation + ']'}"
+						th:href="@{/mema/build/{id1}/{id2}/{id3}    ( id1=${id1} , id2=${id2} , id3=${ws.id} )}"	
+					></a>
+				</div>
+			</div>
+			
+			<div class="dropdown" th:if="${id3 != null and id4 ==null}">
+				<button onclick="myFunction()" class="dropbtn btn btn-light addmybtnlx"> + </button>
+				<div id="myDropdown" class="dropdown-content">
+					<input type="text" placeholder="Add worsplit.." id="myInput" onkeyup="filterFunction()">
+					<a 
+						th:each= "ws : ${wordsplits}" 
+						th:text= "${ws.word +'&emsp;['+ ws.translation + ']'}"
+						th:href= "@{/mema/build/{id1}/{id2}/{id3}/{id4}     ( id1=${id1} , id2=${id2} , id3=${id3} , id4=${ws.id} )}"	
+					></a>
+				</div>
+			</div>
+			
+			<div class="dropdown" th:if="${id4 != null and id5 ==null}">
+				<button onclick="myFunction()" class="dropbtn btn btn-light addmybtnlx"> + </button>
+				<div id="myDropdown" class="dropdown-content">
+					<input type="text" placeholder="Add worsplit.." id="myInput" onkeyup="filterFunction()">
+					<a 
+						th:each= "ws : ${wordsplits}" 
+						th:text= "${ ws.word +'&emsp;['+ ws.translation + ']'}"
+						th:href= "@{/mema/build/{id1}/{id2}/{id3}/{id4}/{id5}      ( id1=${id1} , id2=${id2} , id3=${id3} , id4=${id4} , id5=${ws.id} )}"	
+					></a>
+				</div>
+			</div>
+			
+			<div  
+				class="dropdown"
+				style = "margin-left: 10px"
+				th:if="${id1 != null and id2 ==null}" 
+				><a  
+					class="dropbtn btn btn-light addmybtnlx" 
+					th:text= "${'save mema'}"	
+					th:href="@{/mema/add/{id1}   ( id1=${id1}  )}"	
+				></a>
+			</div>
+<!-- 			th:href="@{/mema/add/{id1}}"  -->
+			<div  
+				class="dropdown" 
+				style = "margin-left: 10px"			
+	    		th:if="${id2 != null and id3 ==null}"
+				><a  
+					class="dropbtn btn btn-light addmybtnlx" 
+					th:text= "${'save mema'}"
+	    			th:href="@{/mema/add/{id1}/{id2}   ( id1=${id1}, id2=${id2}  )}"	
+				></a>
+			</div>
+			
+			<div  
+				class="dropdown" 
+				style = "margin-left: 10px"			
+	    		th:if="${id3 != null and id4 ==null}"
+				><a  
+					class="dropbtn btn btn-light addmybtnlx" 
+					th:text= "${'save mema'}"
+	    			th:href="@{/mema/add/{id1}/{id2}/{id3} ( id1=${id1} , id2=${id2} , id3=${id3} )}" 	
+				></a>
+			</div>
+			
+			<div  
+				class="dropdown" 
+				style = "margin-left: 10px"			
+	    		th:if="${id4 != null and id5 ==null}"
+				><a  
+					class="dropbtn btn btn-light addmybtnlx" 
+					th:text= "${'save mema'}"
+					th:href="@{/mema/add/{id1}/{id2}/{id3}/{id4} ( id1=${id1} , id2=${id2} , id3=${id3} , id4=${id4} )}"	
+				></a>
+			</div>
+			
+			<div  
+				class="dropdown" 
+				style = "margin-left: 10px"			
+	    		th:if="${id5 != null}"
+				><a  
+					class="dropbtn btn btn-light addmybtnlx" 
+					th:text= "${'save mema'}"
+	    			th:href="@{/mema/add/{id1}/{id2}/{id3}/{id4}/{id5} ( id1=${id1} , id2=${id2} , id3=${id3} , id4=${id4} , id5=${id5} )}" 	
+				></a>
+			</div>
+			
+		</div>
+	
+		<br><br>
+		
+		<br>
+	
+		<table  class = "table table-hover " th:if="${memas != null}">
+<!-- 		    <tr style= "border-bottom: 2px solid #ddd; "> -->
+<!-- 		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Mema</th> -->
+<!-- 				<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Literal</th> -->
+<!-- 		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Non-literal</th> -->
+<!-- 		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid rgb(171, 171, 63);">Edit</th> -->
+<!-- 		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid rgb(171, 171, 63);">Delete</th> -->
+<!-- 		    </tr> -->
+		    
+			<tr style= "border-bottom: 1px solid #ddd; ">
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #1e36a3;">Mema</th>
+				<th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #09948f;">Non-literal</th>
+	<!-- 	        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Literal</th> -->
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid #c7352e;">Set non-literal</th>
+		        <th style= "color:rgba(80,80,80,1); border-bottom: 1px solid rgb(171, 171, 63);">Delete</th>
+		    </tr>
+	
+			<tbody style = "border-radius: 15px;">
+			    <tr th:each="m : ${memas}" style = "border-radius: 15px;">
+	<!-- 				<td ><a th:each="split : ${m.wordsplits}" class="href" th:text="${split.word + ' '}"> </a></td> -->
+					<td>
+						<div class="phrase" th:each="split : ${m.wordsplits}">
+							<button  class="mybutton" th:text= "${split.word}"></button>
+						</div>
+					</td>
+<!-- 					<td> -->
+<!-- 						<div class="phrase" th:each="split : ${m.wordsplits}"> -->
+<!-- 							<button  class="mybutton " th:text= "${split.translation}"></button> -->
+<!-- 						</div> -->
+<!-- 					</td> -->
+
+
+<!-- 					<td ><a th:each="split : ${m.wordsplits}" class="href" th:text="${split.translation + ' '}"> </a></td> -->
+					<td style = "width: 500px; "><a th:text="${m.nonLiteral}"> </a></td>       			
+				    <td><a class="href" th:href="@{/mema/edit/{id}  (id=${m.id})}">Set non-literal</a></td>
+				    <td><a class="href" th:href="@{/mema/delete/{id}  (id=${m.id})}">Delete</a></td>
+	
+			    </tr>
+			</tbody>
+		</table> 
+	</div>
+<!-- 	<script src = "/aplikacija.js"> </script> 	 -->
+</body>
+</html>

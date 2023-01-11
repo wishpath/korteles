@@ -2,6 +2,7 @@ package lt.codeacademy;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,14 +13,19 @@ import lombok.extern.slf4j.Slf4j;
 import lt.codeacademy.entities.Role;
 import lt.codeacademy.entities.User;
 import lt.codeacademy.services.UserService;
+import lt.codeacademy.services.WordService;
+
 import static lt.codeacademy.utils.Utils.*;
 @Slf4j
 @SpringBootApplication
 public class App {
+	
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
 		log.info("Started");
+	
 	}
 	
 	

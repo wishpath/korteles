@@ -7,19 +7,176 @@
 	filter: drop-shadow(3px 3px 3px grey);
 	border-radius: 15px;
 }
-
 .addmybtn:hover {
-/* 	background-color: rgba(153, 204, 198, 1); */
 	background-color: rgba(170, 212, 207, 1);
 }
 
+
+
 .addmybtnl {
+	border: none;
 	width: 450px;
 	display: block;
 	filter: drop-shadow(3px 3px 3px grey);
 	border-radius: 15px;
 }
-
 .addmybtnl:hover {
 	background-color: rgb(243, 243, 243, 1);
+}
+
+
+
+.addmybtnlx {
+	border: none;
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+.addmybtnlx:hover {
+	background-color: rgb(243, 243, 243, 1);
+}
+
+
+
+
+
+
+.addmybtn1 {
+	border: none;
+	background-color: rgba(185, 220, 216, 1);
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+.addmybtn1:hover {
+	background-color: rgba(170, 212, 207, 1);
+}
+
+
+
+.addmybtn2 {
+	border: none;
+	background-color: rgb(221, 114, 108);
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+.addmybtn2:hover {
+	background-color: rgb(217, 98, 91);
+}
+
+
+
+.addmybtn3 {
+	border: none;
+	background-color: rgb(126, 145, 231);
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+.addmybtn3:hover {
+	background-color: rgb(109, 131, 228);
+}
+
+
+
+.addmybtn4 {
+	border: none;
+	background-color: rgb(203, 203, 114);
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+.addmybtn4:hover {
+	background-color: rgb(198, 198, 100);
+}
+
+.colours{
+	background-color: rgb(217, 236, 234);
+	background-color: rgb(242, 202, 200);
+	background-color: rgb(192, 201, 243);
+	background-color: rgb(234, 234, 196);
+	background-color: rgb(200, 221, 232);
+}
+.coloursorig{
+	background-color: rgba(185, 220, 216, 1);
+	background-color: rgb(221, 114, 108);
+	background-color: rgb(126, 145, 231);
+	background-color: rgb(203, 203, 114);
+	background-color: rgb(123, 173, 198);
+}
+
+.addmybtn5 {
+	border: none;
+	background-color: rgb(138, 183, 204);
+	display: block;
+	filter: drop-shadow(3px 3px 3px grey);
+	border-radius: 15px;
+}
+.addmybtn5:hover {
+	background-color: rgb(123, 173, 198);
+}
+
+.phrase{
+	display: inline;
+ 	font-size: 0; 
+}
+.mybutton{
+ 	font-size: 15px; 
+	transition: all 1.0s ease;
+	margin-left: 0px;
+	margin-right: 2px;
+	margin-top: 5px;
+	border-radius: 15px;
+	border: none;
+}
+.phrase:nth-child(1) .mybutton {
+	background-color: rgb(217, 236, 234);
+}
+.phrase:nth-child(1) .mybutton:hover {
+	background-color: rgb(197, 224, 222);
+}
+.phrase:nth-child(2) .mybutton {
+	background-color: rgb(242, 202, 200);
+}
+.phrase:nth-child(2) .mybutton:hover {
+	background-color: rgb(236, 177, 174);
+}
+.phrase:nth-child(3) .mybutton {
+	background-color: rgb(192, 201, 243);
+}
+.phrase:nth-child(3) .mybutton:hover {
+	background-color: rgb(166, 179, 238);
+}
+.phrase:nth-child(4) .mybutton {
+	background-color: rgb(234, 234, 196);
+}
+.phrase:nth-child(4) .mybutton:hover {
+	background-color: rgb(225, 225, 172);
+}
+.phrase:nth-child(5) .mybutton {
+	background-color: rgb(200, 221, 232);
+}
+.phrase:nth-child(5) .mybutton:hover {
+	background-color: rgb(177, 206, 222);
+}
+
+
+.phrase:nth-child(6) .mybutton {
+	background-color: rgb(217, 236, 234);
+}
+.phrase:nth-child(6) .mybutton:hover {
+	background-color: rgb(197, 224, 222);
+}
+.phrase:nth-child(7) .mybutton {
+	background-color: rgb(242, 202, 200);
+}
+.phrase:nth-child(7) .mybutton:hover {
+	background-color: rgb(236, 177, 174);
+}
+.phrase:nth-child(8) .mybutton {
+	background-color: rgb(234, 234, 196);
+}
+.phrase:nth-child(8) .mybutton:hover {
+	background-color: rgb(225, 225, 172);
 }
